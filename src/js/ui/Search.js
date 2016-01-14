@@ -1,25 +1,23 @@
-var React = require('react');
-var Router = require('react-router');
+import React from 'react';
+import Router from 'react-router';
 
-
-var Search = React.createClass({
-  mixins: [Router.History],
-  setRef: function (ref) {
+class Search extends React.Component {
+  setRef(ref) {
     this.usernameRef = ref;
-  },
-  handleSubmit: function(){
-    var username = this.usernameRef.value;
+  }
+  handleSubmit(){
+    const username = this.usernameRef.value;
     if (this.usernameRef.value) {
       this.usernameRef.value = '';
-      this.history.pushState(null, '/profile/' + username);
+      this.props.history.pushState(null, `/profile/${username}`);
     };
-  },
-  render: function(){
+  }
+  render(){
     return (
-      <form onSubmit={this.handleSubmit} role="form">
+      <form onSubmit={() => this.handleSubmit()} role="form">
         <div className="form-group">
           <div className="input-group col-sm-6" style={{margin: '0 auto'}}>
-            <input type="text" className="form-control" placeholder="Type Github Username here..." ref={this.setRef}/>
+            <input type="text" className="form-control" placeholder="Type Github Username here..." ref={(ref) => this.setRef(ref)}/>
             <span className="input-group-btn">
               <button type="submit" className="btn btn-success">Search</button>
             </span>
@@ -28,6 +26,10 @@ var Search = React.createClass({
       </form>
     );
   }
-});
+};
 
-module.exports = Search ;
+Search.propTypes = {
+  history: React.PropTypes.object.isRequired
+}
+
+export default Search;

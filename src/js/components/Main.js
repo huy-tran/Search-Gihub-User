@@ -1,21 +1,19 @@
-var React = require('react');
-var Search = require('../ui/Search');
+import React from 'react';
+import Search from '../ui/Search';
 
-var Main = React.createClass({
-  render: function(){
-    return (
-      <div className="main-container">
-        <nav className="navbar navbar-default">
-          <div className="col-sm-7 col-sm-offset-2" style={{marginTop: 15}}>
-            <Search />
-          </div>
-        </nav>
-        <div className="container">
-          {this.props.children}
+const Main = ({children, history}) => {
+  return (
+    <div className="main-container">
+      <nav className="navbar navbar-default">
+        <div className="col-sm-7 col-sm-offset-2" style={{marginTop: 15}}>
+          <Search history={history} />
         </div>
+      </nav>
+      <div className="container">
+        {children}
       </div>
-    );
-  }
-});
+    </div>
+  );
+}
 
-module.exports = Main ;
+export default Main;
