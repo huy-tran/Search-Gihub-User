@@ -1,7 +1,7 @@
 {
-  "name": "react-app",
+  "name": "react-search-github-app",
   "version": "1.0.0",
-  "description": "A basic environment for ReactJS in ES6, Flux Architecture and Webpack",
+  "description": "Search Github Username React App",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -37,9 +37,12 @@
     "webpack-dev-server": "^1.10.1"
   },
   "dependencies": {
+    "axios": "0.8.1",
+    "firebase": "2.3.2",
+    "history": "1.17.0",
     "react": "^0.14.3",
     "react-dom": "^0.14.0",
-    "react-router-component": "^0.29.0",
-    "flux": "^2.1.1"
+    "react-router": "1.0.3",
+    "reactfire": "0.5.1"
   }
 }

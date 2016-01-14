@@ -1,14 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var Router = require('react-router').Router;
+var routes = require('./config/routes');
 
-var App = React.createClass({
-  render: function(){
-    return (
-      <h1>Hello React</h1>
-    );
-  }
-});
-
-ReactDOM.render(<App />, document.getElementById('myApp'));
-
-module.exports = App;
+ReactDOM.render(<Router>{routes}</Router>, document.getElementById('myApp'));
