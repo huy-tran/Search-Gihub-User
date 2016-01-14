@@ -5,7 +5,8 @@ class Search extends React.Component {
   setRef(ref) {
     this.usernameRef = ref;
   }
-  handleSubmit(){
+  handleSubmit(e){
+    e.preventDefault();
     const username = this.usernameRef.value;
     if (this.usernameRef.value) {
       this.usernameRef.value = '';
@@ -14,7 +15,7 @@ class Search extends React.Component {
   }
   render(){
     return (
-      <form onSubmit={() => this.handleSubmit()} role="form">
+      <form onSubmit={(e) => this.handleSubmit(e)} role="form">
         <div className="form-group">
           <div className="input-group col-sm-6" style={{margin: '0 auto'}}>
             <input type="text" className="form-control" placeholder="Type Github Username here..." ref={(ref) => this.setRef(ref)}/>
